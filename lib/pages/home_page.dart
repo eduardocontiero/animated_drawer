@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_drawer.dart';
+
+import 'doctor_page.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
@@ -10,6 +14,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.purpleAccent,
+      body: Stack(
+        children: [
+          CustomDrawer(),
+          DoctorPage()
+        ],
+      ),
+    );
   }
 }
