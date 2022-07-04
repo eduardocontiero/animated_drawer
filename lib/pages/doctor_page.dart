@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:animated_drawer/utils/screen_size.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../widgets/doctors_list.dart';
 
 class DoctorPage extends StatefulWidget {
   DoctorPage({Key? key}) : super(key: key);
@@ -24,17 +27,18 @@ class _DoctorPageState extends State<DoctorPage> {
       color: Colors.white,
       child: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start, 
           children: [
             Container(
               height: screenHeight(context, dividedBy: 2.6),
               margin: const EdgeInsets.symmetric(horizontal: 15),
-              decoration:
-                  const BoxDecoration(color: Color(0xffFCD7E8), borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40))),
+              decoration: const BoxDecoration(
+                  color: Color(0xffFCD7E8), borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40))),
               child: Stack(
-                
+
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 25),
+                    padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -54,6 +58,7 @@ class _DoctorPageState extends State<DoctorPage> {
                             : IconButton(
                                 icon: const Icon(Icons.menu),
                                 onPressed: () {
+                                 
                                   setState(() {
                                     _xOffset = 230;
                                     _yOffset = 150;
@@ -70,49 +75,72 @@ class _DoctorPageState extends State<DoctorPage> {
                       ],
                     ),
                   ),
-                    Positioned(
-                  right: 0,
-                  bottom: 0,
-                    
-                    child:  Opacity(
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: Opacity(
                       opacity: 0.70,
                       child: ClipRRect(
-                        borderRadius: BorderRadius.only(bottomRight: Radius.circular(35)),
+                        borderRadius: const BorderRadius.only(bottomRight: Radius.circular(35)),
                         child: CustomPaint(
-                              //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                              painter: MyCustomPainter(),
-                              child: Container(
-                                width: 475,
-                                height: 475,
-                              ),
-                            ),
+                          //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                          painter: MyCustomPainter(),
+                          child: const SizedBox(
+                            width: 250,
+                            height: 250,
+                          ),
+                        ),
                       ),
                     ),
-                    ),
-                  
+                  ),
                   Positioned(
-                  right: 0,
-                  bottom: 0,
-                    
-                    child:  ClipRRect(
-                        borderRadius: BorderRadius.only(bottomRight: Radius.circular(35)),
-                        child: CustomPaint(
-                              //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                              painter: MyCustomPainter(),
-                              child: Container(
-                                width: 350,
-                                height: 350,
-                              ),
-                            ),
+                    right: 0,
+                    bottom: 0,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(bottomRight: Radius.circular(35)),
+                      child: CustomPaint(
+                        painter: MyCustomPainter(),
+                        child: const SizedBox(
+                          width: 200,
+                          height: 200,
+                        ),
                       ),
-                    
                     ),
-                    
-                    
-                  
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30, bottom: 40),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
+                          child: TextField(
+                            style: TextStyle(color: Colors.grey[700]),
+                           
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Search condition or therapist',
+                            
+                              hintStyle: TextStyle(color: Colors.grey[700])
+                            ),
+                          )),
+                    ),
+                  ),
                 ],
               ),
-            )
+            ),
+            const SizedBox(height: 15,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  Text('Previous Visits', style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 17, color: Theme.of(context).primaryColor),),
+                   DoctorsList()
+                ],
+              ),
+            ),
+           
+
           ],
         ),
       ),
@@ -129,15 +157,9 @@ class MyCustomPainter extends CustomPainter {
       ..strokeWidth = 1;
 
     Path path = Path();
-    path.moveTo(size.width * 0.52, size.height);
-  
+    path.moveTo(size.width * 0.3, size.height);
 
-    
-   
-    path.quadraticBezierTo(size.width * 0.6 , size.height * 0.1, size.width * 2, size.height);
-    
-     
-    
+    path.quadraticBezierTo(size.width * 0.4, -size.height * 0.4, size.width * 3, size.height);
 
     canvas.drawPath(path, paint);
   }
