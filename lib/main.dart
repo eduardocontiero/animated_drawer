@@ -14,15 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp(  
       title: 'Animated Drawer Example',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: const Color(0xff132B4C)),
+      theme: ThemeData(primaryColor: const Color(0xff122B4B)),
       initialRoute: '/home',
       routes: {
         '/home': (context) => HomePage(),
         '/doctor': (context) => DoctorPage(),
-        '/doctor-detail': (context) => const DoctorDetailPage(),
+        '/doctor-detail': (context) => DoctorDetailPage(),
       },
     );
   }

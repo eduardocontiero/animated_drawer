@@ -65,17 +65,28 @@ class DoctorsList extends StatelessWidget {
                 ),
                 Center(
                   child: GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).pushNamed('/doctor-detail', arguments: doctors[index]);
+                    },
                     child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        child: Icon(
-                          Icons.play_arrow,
-                          color: Color(0xffF1F6F7),
-                        )),
+                      width: 80,
+                      height: 80,
+                      color: Colors.transparent,
+                      child: Align(
+                        child: Container(
+                            
+                            width: 25,
+                            height: 25,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            child: const Icon(
+                              Icons.play_arrow,
+                              color: Color(0xffF1F6F7),
+                            )),
+                      ),
+                    ),
                   ),
                 ),
               ],

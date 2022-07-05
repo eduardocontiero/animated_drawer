@@ -112,7 +112,7 @@ class _DoctorPageState extends State<DoctorPage> {
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
                           child: TextField(
                             style: TextStyle(color: Colors.grey[700]),
