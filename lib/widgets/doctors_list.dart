@@ -75,8 +75,8 @@ class DoctorsList extends StatelessWidget {
                       child: Align(
                         child: Container(
                             
-                            width: 25,
-                            height: 25,
+                            width: 23,
+                            height: 23,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               color: Theme.of(context).primaryColor,
@@ -84,6 +84,7 @@ class DoctorsList extends StatelessWidget {
                             child: const Icon(
                               Icons.play_arrow,
                               color: Color(0xffF1F6F7),
+                              size: 15,
                             )),
                       ),
                     ),

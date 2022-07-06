@@ -129,12 +129,17 @@ class _DoctorPageState extends State<DoctorPage> {
                 ],
               ),
             ),
-            const SizedBox(height: 15,),
+            const SizedBox(height: 20,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Previous Visits', style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 17, color: Theme.of(context).primaryColor),),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 5),
+                    child: Text('Previous Visits', style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 16, color: Theme.of(context).primaryColor),),
+                  ),
+                    const SizedBox(height: 15,),
                    DoctorsList()
                 ],
               ),
