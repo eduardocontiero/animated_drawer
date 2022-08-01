@@ -14,20 +14,25 @@ class _DrawerScreenState extends State<CustomDrawer> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20),
-      child: Column(
-        
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ListTile(
-            title: Text('Home', style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white)),
-          ),
-          ListTile(
-            title: Text('Doctors', style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white)),
-          ),
-          ListTile(
-            title: Text('Profile', style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white)),
-          ),
-        ],
+      child: Center(
+        child: Column(
+          
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ListTile(
+              onTap: (){
+                Navigator.of(context).pushNamedAndRemoveUntil('/home', (route) => false);
+              },
+              title: Text('Home', style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white)),
+            ),
+            ListTile(
+              title: Text('Doctors', style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white)),
+            ),
+            ListTile(
+              title: Text('Profile', style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white)),
+            ),
+          ],
+        ),
       ),
     );
   }
